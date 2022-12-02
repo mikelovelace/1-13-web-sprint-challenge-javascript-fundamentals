@@ -17,7 +17,8 @@ function myFunction() {
 
 //🚀🚀🚀 ⬇️ 📝 Explanation ⬇️ 📝 🚀🚀🚀: 
 
-
+// nestedFunction has access to the variable internal because it is in its lexical environment
+// nested functions have the ability to reach outside of their scope to access other variables which is called closure
 
 
 
@@ -30,10 +31,14 @@ function myFunction() {
 💡 NOTE: you may use a for loop for this function if you wish 
 */
 
-function summation(/*Your Code Here*/) {
-  /*Your Code Here*/
-
+function summation(num) {
+  let count = 0
+  for(let i = 0; i <= num; i++) {
+    count += i
   }
+  return count
+  }
+  console.log(summation(4))
  
 
 // 🦁🦁🦁 Topic 2: ADVANCED Array Methods 🦁🦁🦁
@@ -60,9 +65,14 @@ const zooAnimals = [
   💡 NOTE: the array returned should be an array of strings, and each string should follow this pattern: "name: {name}, scientific: {scientific name}"
   */
 
-  function animalNames(/*Your Code Here*/){
-    /*Your Code Here*/
+  function animalNames(arr){
+    let displayNames = []
+    arr.forEach((item) => {
+      displayNames.push(`name: ${item.animal_name}, scientific: ${item.scientific_name}`)
+    })
+    return displayNames
   }
+  console.log(animalNames(zooAnimals))
   
 
   /* 🦁🦁🦁 Request 2: .map() 🦁🦁🦁
@@ -75,10 +85,12 @@ const zooAnimals = [
   💡 NOTE: Do some research for other methods that can help help you
   */
 
-  function lowerCaseNames(/*Your Code Here*/){
-    /*Your Code Here*/
+  function lowerCaseNames(arr){
+    return arr.map((item) => {
+      return item.animal_name.toLowerCase()
+    })
   }
-  
+  console.log(lowerCaseNames(zooAnimals))
   
   /* 🦁🦁🦁 Request 3: .filter() 🦁🦁🦁
   The zoo is concerned about animals with a lower population count. 
